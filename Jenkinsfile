@@ -10,8 +10,8 @@ pipeline{
     stage('Test'){
       steps{
               sh 'make check || true' 
-              junit 'src/test/java/*Test.java' 
-              junit 'src/test/java/*IT.java' 
+              junit 'target/surefire-reports/*.xml'
+              junit 'target/failsafe-reports/*.xml' 
       }
     }
   
