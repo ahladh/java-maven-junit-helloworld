@@ -16,8 +16,15 @@ pipeline{
     stage('Test'){
       steps{
               sh 'make check || true' 
-              junit 'src/test/java/*Test.java' 
-              junit 'src/test/java/*IT.java' 
+              junit '**/target/surefire-reports/*.xml'
+              junit '**/target/failsafe-reports/*.xml' 
+              publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco-both/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+      }
+    }
+  
+  }
+}
+
       }
     }
   
