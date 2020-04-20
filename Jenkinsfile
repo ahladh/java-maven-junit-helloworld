@@ -6,8 +6,7 @@ pipeline{
   stages{
     stage('Checkout'){
       steps{
-      checkout([$class: 'GitSCM', branches: [[name: "${params.BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GITHUB_ahladh', url: 'https://github.com/ahladh/java-maven-junit-helloworld.git']]])
-      }
+           git branch: 'custom', credentialsId: 'GITHUB_ahladh', url: 'https://github.com/ahladh/java-maven-junit-helloworld.git'      }
     }
       stage('Build'){
         steps{
