@@ -7,7 +7,7 @@ pipeline{
   }
   parameters{
      string(name: 'BRANCH', defaultValue: 'master', description: 'Specify Branch to Build')
-     string(name: 'CUSTOM_WORKSPACE', defaultValue: '/var/lib/jenkins/workspace/Learn', description: 'Specify CUSTOM WORKSPACE to Build')
+     string(name: 'CUSTOM_WORKSPACE', defaultValue: '/var/lib/jenkins/workspace/Learn/custom', description: 'Specify CUSTOM WORKSPACE to Build')
   }
   stages{
     stage('Checkout'){
