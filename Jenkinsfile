@@ -1,12 +1,12 @@
 pipeline{
   agent any
   parameters{
-     string(name: 'BRANCH', defaultValue: 'staging', description: 'Specify Branch to Build')
+     string(name: 'BRANCH', defaultValue: 'master', description: 'Specify Branch to Build')
   }
   stages{
     stage('Checkout'){
       steps{
-           git branch: 'custom', credentialsId: 'GITHUB_ahladh', url: 'https://github.com/ahladh/java-maven-junit-helloworld.git'      }
+        git branch: "${params.BRANCH}", credentialsId: 'GITHUB_ahladh', url: 'https://github.com/ahladh/java-maven-junit-helloworld.git'      }
     }
       stage('Build'){
         steps{
