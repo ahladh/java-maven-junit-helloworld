@@ -6,7 +6,9 @@ pipeline{
   stages{
     stage('Checkout'){
       steps{
-        git branch: "${params.BRANCH}", credentialsId: 'GITHUB_ahladh', url: 'https://github.com/ahladh/java-maven-junit-helloworld.git'      }
+        git branch: "${params.BRANCH}", credentialsId: 'GITHUB_ahladh', url: 'https://github.com/ahladh/java-maven-junit-helloworld.git'      
+          
+      }
     }
       stage('Build'){
         steps{
@@ -19,12 +21,6 @@ pipeline{
               junit '**/target/surefire-reports/*.xml'
               junit '**/target/failsafe-reports/*.xml' 
               publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco-both/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
-      }
-    }
-  
-  }
-}
-
       }
     }
   
