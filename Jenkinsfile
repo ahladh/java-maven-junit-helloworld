@@ -17,7 +17,7 @@ pipeline{
               sh 'make check || true' 
               junit '**/target/surefire-reports/*.xml'
               junit '**/target/failsafe-reports/*.xml' 
-              publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco-both/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+              //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco-both/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
       }
     }
   
